@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Route, Redirect, Switch, Link, useParams, useRouteMatch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch, Link, useParams } from 'react-router-dom'
 import './App.css'
 
 function App () {
@@ -7,6 +7,8 @@ function App () {
     <Router>
       <Switch>
         <Route path='/' exact component={Launcher}/>
+        <Route path='/about' exact component={About}/>
+        <Route path='/terms' exact component={TermsOfService}/>
         <Route path='/call/:call' component={Call}/>
         <Route path='*'>
           <Redirect to='/'/>
@@ -17,18 +19,33 @@ function App () {
 }
 
 function Launcher () {
-  const { url } = useRouteMatch()
-
   return (
-    <Link to={`${url}call/test`}>
-      <div id='launcher'>Launcher</div>
-    </Link>
+    <div id='launcher'>
+      <ul>
+        <li>
+          <Link to='/call/test'>Launcher</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+        <li>
+          <Link to='/terms'>Terms of Service</Link>
+        </li>
+      </ul>
+    </div>
   )
+}
+
+function About () {
+  return <div id='about'>About</div>
+}
+
+function TermsOfService () {
+  return <div id='tos'>Terms of Service</div>
 }
 
 function Call () {
   const { call } = useParams()
-  const { url } = useRouteMatch()
   const [clazz, setClazz] = useState('green')
 
   const toggleColor = () => {
