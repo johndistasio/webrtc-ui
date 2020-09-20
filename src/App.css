@@ -24,9 +24,15 @@
   height: 100vh;
 }
 
-#local-video {
-  background-color: #A4F0B7;
+.orange {
+  background-color: #F0CFA4;
+}
 
+.green {
+  background-color: #A4F0B7;
+}
+
+#local-video {
   width: 320px;
   height: 180px;
 
