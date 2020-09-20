@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="app">
+      <div id="launcher">Launcher</div>
+      <div id="remote-video" class="video">Remote Video</div>
+      <div id="local-video" class="video">Local Video</div>
+      <div id="controls">
+        <button title="Start Call">Start Call</button>
+        <button title="Toggle Mute">Mute</button>
+        <button title="Toggle Preview">Stop Preview</button>
+        <button title="End Call">End Call</button>
+      </div>
     </div>
   );
 }
