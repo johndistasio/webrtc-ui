@@ -4,17 +4,16 @@
   height: 100vh;
 }
 
-#launcher {
-  background-color: #A8CFFF;
-
+.launcher {
+  /*
   width: 320px;
   height: 90px;
+  */
 
   position: absolute;
   left: 50%;
   bottom: 50%;
   transform: translateX(-50%);
-
 }
 
 #remote-video {

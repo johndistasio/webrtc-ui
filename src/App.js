@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch, Link, useParams } from 'react-router-dom'
+import { Button, Card, OutlinedInput } from '@material-ui/core'
 import './App.css'
 
 function App () {
@@ -18,13 +19,42 @@ function App () {
   )
 }
 
+function getRandomInt (max) {
+  return Math.floor(Math.random() * Math.floor(max))
+}
+
 function Launcher () {
+  const [call, setCall] = useState('')
+
   return (
-    <div id='launcher'>
+    <Card variant='outlined' className='launcher'>
+      <div>
+        <OutlinedInput
+          placeholder='Enter a Call ID'
+          value={call}
+          onChange={(e) => setCall(e.target.value)}/>
+      </div>
+      <div>
+        <Button
+          variant='contained'
+          color='primary'
+          disabled={call === ''}
+          component={Link}
+          to={`/call/${call}`}>Start Call</Button>
+        <Button
+          variant='outlined'
+          color='secondary'
+          disabled={call === ''}
+          onClick={() => setCall('')}>Clear</Button>
+      </div>
+      <div>
+        <Button
+          variant='outlined'
+          color='primary'
+          // TODO need a better randomized value here
+          onClick={() => setCall(`call-${getRandomInt(9999)}`)}>Random</Button>
+      </div>
       <ul>
-        <li>
-          <Link to='/call/test'>Launcher</Link>
-        </li>
         <li>
           <Link to='/about'>About</Link>
         </li>
@@ -32,7 +62,7 @@ function Launcher () {
           <Link to='/terms'>Terms of Service</Link>
         </li>
       </ul>
-    </div>
+    </Card>
   )
 }
 
