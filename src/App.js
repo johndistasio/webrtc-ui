@@ -1,12 +1,12 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-function App() {
+function App () {
   return (
     <div id="app">
       <div id="launcher">Launcher</div>
-      <div id="remote-video" class="video">Remote Video</div>
-      <div id="local-video" class="video">Local Video</div>
+      <div id="remote-video" className="video">Remote Video</div>
+      <div id="local-video" className="video">Local Video</div>
       <div id="controls">
         <button title="Start Call">Start Call</button>
         <button title="Toggle Mute">Mute</button>
@@ -14,7 +14,7 @@ function App() {
         <button title="End Call">End Call</button>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
