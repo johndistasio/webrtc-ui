@@ -31,7 +31,10 @@ function getRandomInt (max) {
 }
 
 function Launcher () {
-  const [call, setCall] = useState('')
+  // TODO use a friendlier, memorable format for random call IDs
+  const randomCall = () => `call-${getRandomInt(9999)}-${getRandomInt(9999)}`
+
+  const [call, setCall] = useState(randomCall())
 
   return (
     <Card id='launcher'>
@@ -52,8 +55,7 @@ function Launcher () {
         <Button
           variant='outlined'
           color='primary'
-          // TODO need a better randomized value here
-          onClick={() => setCall(`call-${getRandomInt(9999)}`)}>Random</Button>
+          onClick={() => setCall(randomCall())}>Random</Button>
         <Button
           variant='outlined'
           color='secondary'
