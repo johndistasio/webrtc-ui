@@ -99,35 +99,42 @@ function TermsOfService() {
 
 function Call() {
   const { call } = useParams();
-  const [clazz, setClazz] = useState("green");
 
-  const toggleColor = () => {
-    setClazz(clazz === "green" ? "orange" : "green");
+  return (
+    <div className="call">
+      <CallScreen callId={call} />
+      <CallPreview />
+      <CallControls />
+    </div>
+  );
+}
+
+function CallScreen(props) {
+  return <div className="call-screen">{props.callId}</div>;
+}
+
+function CallPreview() {
+  const onClick = () => {
+    console.log("preview clicked");
   };
 
   return (
-    <div id="call">
-      <div id="remote-video" className="video">
-        {call}
-      </div>
-      <div
-        id="local-video"
-        className={clazz}
-        onClick={() => {
-          toggleColor();
-        }}
-      >
-        Local Video
-      </div>
-      <div id="controls">
-        <Link to="/">
-          <span>Back</span>
-        </Link>
-        <button title="Start Call">Start Call</button>
-        <button title="Toggle Mute">Mute</button>
-        <button title="Toggle Preview">Stop Preview</button>
-        <button title="End Call">End Call</button>
-      </div>
+    <div className="call-preview" onClick={() => onClick()}>
+      Local Video
+    </div>
+  );
+}
+
+function CallControls() {
+  return (
+    <div className="call-controls">
+      <Link to="/">
+        <span>Back</span>
+      </Link>
+      <button title="Start Call">Start Call</button>
+      <button title="Toggle Mute">Mute</button>
+      <button title="Toggle Preview">Stop Preview</button>
+      <button title="End Call">End Call</button>
     </div>
   );
 }

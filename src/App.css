@@ -1,5 +1,5 @@
 #app {
-  background-color: #FFFFD7;
+  background-color: #ffffd7;
 
   height: 100vh;
 }
@@ -17,7 +17,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 #launcher-input > * {
@@ -28,24 +27,18 @@
   margin: 5px;
 }
 
-#remote-video {
-  background-color: #FFBBBB;
+.call-screen {
+  background-color: #ffbbbb;
 
   width: 100vw;
   height: 100vh;
 }
 
-.orange {
-  background-color: #F0CFA4;
-}
-
-.green {
-  background-color: #A4F0B7;
-}
-
-#local-video {
+.call-preview {
   width: 320px;
   height: 180px;
+
+  background-color: #a4f0b7;
 
   position: absolute;
 
@@ -53,8 +46,8 @@
   right: 10px;
 }
 
-#controls {
-  background-color: #F0CBFE;
+.call-controls {
+  background-color: #f0cbfe;
 
   position: absolute;
   left: 50%;
@@ -62,10 +55,8 @@
   transform: translateX(-50%);
 }
 
-#controls > button {
-  margin: 5px;
-}
-
-*, *:before, *:after {
+*/ *,
+*:before,
+*:after {
   box-sizing: border-box;
 }
