@@ -1,20 +1,27 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch, Link, useParams } from 'react-router-dom'
-import { Button, Card, OutlinedInput } from '@material-ui/core'
+import {
+  Button,
+  Card,
+  OutlinedInput
+} from '@material-ui/core'
+import CallIcon from '@material-ui/icons/Call'
 import './App.css'
 
 function App () {
   return (
     <Router>
-      <Switch>
-        <Route path='/' exact component={Launcher}/>
-        <Route path='/about' exact component={About}/>
-        <Route path='/terms' exact component={TermsOfService}/>
-        <Route path='/call/:call' component={Call}/>
-        <Route path='*'>
-          <Redirect to='/'/>
-        </Route>
-      </Switch>
+      <div id="app">
+        <Switch>
+          <Route path='/' exact component={Launcher}/>
+          <Route path='/about' exact component={About}/>
+          <Route path='/terms' exact component={TermsOfService}/>
+          <Route path='/call/:call' component={Call}/>
+          <Route path='*'>
+            <Redirect to='/'/>
+          </Route>
+        </Switch>
+      </div>
     </Router>
   )
 }
@@ -27,41 +34,42 @@ function Launcher () {
   const [call, setCall] = useState('')
 
   return (
-    <Card variant='outlined' className='launcher'>
-      <div>
+    <Card id='launcher'>
+      <div id='launcher-input'>
         <OutlinedInput
           placeholder='Enter a Call ID'
           value={call}
           onChange={(e) => setCall(e.target.value)}/>
-      </div>
-      <div>
         <Button
           variant='contained'
           color='primary'
           disabled={call === ''}
+          startIcon={<CallIcon/>}
           component={Link}
-          to={`/call/${call}`}>Start Call</Button>
+          to={`/call/${call}`}>Join</Button>
+      </div>
+      <div id='launcher-controls'>
+        <Button
+          variant='outlined'
+          color='primary'
+          // TODO need a better randomized value here
+          onClick={() => setCall(`call-${getRandomInt(9999)}`)}>Random</Button>
         <Button
           variant='outlined'
           color='secondary'
           disabled={call === ''}
           onClick={() => setCall('')}>Clear</Button>
       </div>
-      <div>
-        <Button
-          variant='outlined'
-          color='primary'
-          // TODO need a better randomized value here
-          onClick={() => setCall(`call-${getRandomInt(9999)}`)}>Random</Button>
+      <div id='launcher-extra'>
+        <ul>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+          <li>
+            <Link to='/terms'>Terms of Service</Link>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li>
-          <Link to='/about'>About</Link>
-        </li>
-        <li>
-          <Link to='/terms'>Terms of Service</Link>
-        </li>
-      </ul>
     </Card>
   )
 }
