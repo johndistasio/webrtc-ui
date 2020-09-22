@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import "./Call.css";
 
 function Call() {
   const { call } = useParams();
