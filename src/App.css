@@ -4,36 +4,12 @@
   height: 100vh;
 }
 
-.call-screen {
-  background-color: #ffbbbb;
-
-  width: 100vw;
-  height: 100vh;
-}
-
-.call-preview {
-  width: 320px;
-  height: 180px;
-
-  background-color: #a4f0b7;
-
-  position: absolute;
-
-  top: 10px;
-  right: 10px;
-}
-
-.call-controls {
-  background-color: #f0cbfe;
-
-  position: absolute;
-  left: 50%;
-  bottom: 5%;
-  transform: translateX(-50%);
-}
-
-*/ *,
-*:before,
-*:after {
+html {
   box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
